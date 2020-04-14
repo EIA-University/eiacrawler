@@ -1,5 +1,5 @@
 # eiacrawler:spider:
-a web crawler that parse the university site to extract the urls of the education videos for eiacast 
+a web crawler that parses the university's site to extract the urls of the education videos library for eiacast 
 
 ## Getting started :rocket:
 
