@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[scripts]
+crawl  = "scrapy crawl"
+
+[dev-packages]
+flake8 = "*"
+isort = "*"
+pep8 = "*"
+autopep8 = "*"
+pylint = "*"
+
+[packages]
+scrapy = "*"
+python-dotenv = "*"
+
+[requires]
+python_version = "3.7"
