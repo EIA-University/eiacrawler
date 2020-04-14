@@ -25,7 +25,7 @@ NEWSPIDER_MODULE = 'eiacrawler.spiders'
 #USER_AGENT = 'eiacrawler (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
