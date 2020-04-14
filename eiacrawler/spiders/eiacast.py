@@ -52,6 +52,8 @@ class EiacastSpider(scrapy.Spider):
         self.logger.info("got response for %r" % response.url)
         videos = response.css(
             '#page #content .course-content #layout-table #middle-column div #thetopics .main')
+        courses = response.css(
+            '#page #content .course-content #layout-table #middle-column div #thetopics .cps td a span::text').getall()
         for video in videos:
             lectures = video.css('.content ul li a::attr(href)').getall()
             print(lectures)
