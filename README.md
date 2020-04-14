@@ -4,19 +4,19 @@ a web crawler that parse the university site to extract the urls of the educatio
 ## Getting started :rocket:
 
 ### Prerequisites 
-* pyenv | []()
-* pipenv | []()
+* pyenv | [https://github.com/pyenv/pyenv](https://github.com/pyenv/pyenv)
+* pipenv | [https://pipenv-es.readthedocs.io/es/latest](https://pipenv-es.readthedocs.io/es/latest)
 
 ### Installing
 download the repo with:
 ```
- git clone https://github.com/zulo30/grabus-app.git app
+ git clone https://github.com/zulo30/eiacrawler.git
 ```
 to run the project:
 
-1. download all the dependecies with npm.
+1. download all the dependecies with pipenv.
 ```
-npm init
+pipenv install
 ```
 
 ## Use
@@ -30,9 +30,11 @@ to run the server:
  command
 ```
 ## Learning Resources 
-* scrapy | []()
+* scrapy | [https://scrapy.org](https://scrapy.org)
 * pymongo | []()
-* dotenv  | []()
+* dotenv  | [https://github.com/theskumar/python-dotenv
+](https://github.com/theskumar/python-dotenv
+)
 
 
 ## Contributing:
