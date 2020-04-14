@@ -10,7 +10,7 @@ class EiacastSpider(scrapy.Spider):
 
     def parse(self, response):
         token = response.css(
-            '#costum-login div form input::attr(value)').extract_first()
+            '#page-wrapper #page #page-content #region-main-box #region-main div .card .card-block #costum-login').extract_first()
         if token is not None:
             print(token)
         else:
