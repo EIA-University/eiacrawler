@@ -43,5 +43,15 @@ class EiacastSpider(scrapy.Spider):
     def parse_links(self, response):
         print('****************************************')
         self.logger.info("got response for %r" % response.url)
-        divs = response.css('div').getall()
-        print(divs)
+        urls = response.css(
+            '#page #content #layout-table tr #middle-column ul li span div a::attr(href )').getall()
+        return response.follow_all(urls, callback=self.go_to_libraries)
+
+    def go_to_libraries(self, response):
+        print('****************************************')
+        self.logger.info("got response for %r" % response.url)
+        videos = response.css(
+            '#page #content .course-content #layout-table #middle-column div #thetopics .main')
+        for video in videos:
+            lectures = video.css('.content ul li a::attr(href)').getall()
+            print(lectures)

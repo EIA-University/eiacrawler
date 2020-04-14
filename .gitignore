@@ -1,3 +1,4 @@
 .env
 .vscode
 eiacrawler/__pycache__/
+eiacrawler/spiders/__pycache__/
