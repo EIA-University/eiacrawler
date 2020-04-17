@@ -22,7 +22,7 @@ pipenv install
 ## Use
 to run the server:
  ```
- command goes here
+pipenv run crawl
  ```
 ##  Running test 
 to run the server:

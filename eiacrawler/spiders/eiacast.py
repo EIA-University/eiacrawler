@@ -36,9 +36,9 @@ class EiacastSpider(scrapy.Spider):
         self.logger.info("got response for %r" % response.url)
         value = response.css('form input::attr(value)').getall()
         return [FormRequest.from_response(response, formid="login", formdata={
-                'username': value[0],
-                'password': value[1],
-                }, callback=self.parse_links)]
+            'username': value[0],
+            'password': value[1],
+        }, callback=self.parse_links)]
 
     def parse_links(self, response):
         print('****************************************')
@@ -54,6 +54,18 @@ class EiacastSpider(scrapy.Spider):
             '#page #content .course-content #layout-table #middle-column div #thetopics .main')
         courses = response.css(
             '#page #content .course-content #layout-table #middle-column div #thetopics .cps td a span::text').getall()
-        for video in videos:
+        urls = []
+        items = EiacrawlerItem()
+        for idx, video in enumerate(videos):
             lectures = video.css('.content ul li a::attr(href)').getall()
-            print(lectures)
+            topics = video.css('.content ul li a span::text').getall()
+            for lecture in lectures:
+                urls.append(lecture)
+            if len(courses) > idx:
+                items['title'] = courses[idx]
+                items['topics'] = topics
+                items['lectures'] = lectures
+            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+            print(urls)
+            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+            yield items
