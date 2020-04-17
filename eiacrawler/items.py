@@ -12,4 +12,3 @@ class EiacrawlerItem(scrapy.Item):
     # define the fields for your item here like:
     title = scrapy.Field()
     topics = scrapy.Field()
-    lectures = scrapy.Field()

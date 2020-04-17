@@ -63,9 +63,15 @@ class EiacastSpider(scrapy.Spider):
                 urls.append(lecture)
             if len(courses) > idx:
                 items['title'] = courses[idx]
-                items['topics'] = topics
-                items['lectures'] = lectures
-            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-            print(urls)
-            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+                items['topics'] = {
+                    'titles': topics,
+                    'lectures': lectures
+                }
             yield items
+        # return response.follow_all(urls, callback=self.go_to_lectures)
+
+    def go_to_lectures(self, response):
+        print('****************************************')
+        self.logger.info("got response for %r" % response.url)
+        page = response.css('#page')
+        print(page)
