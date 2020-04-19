@@ -22,7 +22,7 @@ NEWSPIDER_MODULE = 'eiacrawler.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'eiacrawler (+http://www.yourdomain.com)'
+USER_AGENT = 'eiacrawler (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False

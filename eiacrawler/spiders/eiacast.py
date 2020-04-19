@@ -14,7 +14,6 @@ class EiacastSpider(scrapy.Spider):
         token = response.css(
             '#page-wrapper #page #page-content #region-main-box #region-main div .card .card-block div div form input::attr(value)').getall()[1]
         if token is not None:
-            print(token)
             self.logger.info("got response for %r" % response.url)
             return [FormRequest.from_response(response, formid="login", formdata={
                 'anchor': '',
@@ -45,6 +44,7 @@ class EiacastSpider(scrapy.Spider):
         self.logger.info("got response for %r" % response.url)
         urls = response.css(
             '#page #content #layout-table tr #middle-column ul li span div a::attr(href )').getall()
+        print(urls)
         return response.follow_all(urls, callback=self.go_to_libraries)
 
     def go_to_libraries(self, response):
@@ -67,7 +67,8 @@ class EiacastSpider(scrapy.Spider):
                     'titles': topics,
                     'lectures': lectures
                 }
-            yield items
+            # yield items
+        return response.follow_all(urls[1], callback=self.go_to_lectures)
         # return response.follow_all(urls, callback=self.go_to_lectures)
 
     def go_to_lectures(self, response):
